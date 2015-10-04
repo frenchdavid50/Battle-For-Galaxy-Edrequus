@@ -9,13 +9,15 @@ public var red1: Color;
 public var rend: Renderer;
 
 function OnMouseEnter () {
-	rend.material.color = blue2;
-	transform.position.y = 0.2;
-	Debug.Log ("mouse enter " + Time.time + " s");
+	if (rend.material.color == blue1)
+		rend.material.color = blue2;
+		transform.position.y = 0.2;
+		Debug.Log ("mouse enter " + Time.time + " s");
 }
 function OnMouseExit () {
-	rend.material.color = blue1;
-	transform.position.y = 0.0;
+	if (rend.material.color == blue2)
+		rend.material.color = blue1;
+		transform.position.y = 0.0;
 }
 
 function OnTriggerEnter(movTrigger: Collider) {
